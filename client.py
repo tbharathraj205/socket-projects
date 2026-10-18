@@ -1,9 +1,12 @@
 
 import socket
 import threading
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-PORT = 65431
-SERVER = "172.30.12.162"
+PORT = int(os.environ['PORT'])
+SERVER = os.environ['SERVER_IP']
 ADDR = (SERVER, PORT)
 FORMAT = "utf-8"
 DISCONNECT_MESSAGE = "!DISCONNECT"

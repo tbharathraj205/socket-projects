@@ -1,9 +1,10 @@
 import threading
 import socket
 from collections import defaultdict
-import random
 import time
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 # Get all the usernmaes from the username.txt file
 all_username = []
 
@@ -13,8 +14,8 @@ with open("usernames.txt","r") as file:
             all_username.append(line.strip())
 
 
-PORT = 65431
-SERVER = "172.30.12.162"
+PORT = int(os.environ['PORT'])
+SERVER = os.environ['SERVER_IP']
 ADDR = (SERVER, PORT)
 FORMAT = "utf-8"
 DISCONNECT_MESSAGE = "!DISCONNECT"
@@ -39,20 +40,22 @@ def handle_client(username):
             
             if msg == DISCONNECT_MESSAGE:
                 connected = False
-                msg = f"-----------------------------{username} Disconnected---------------------------"
+                msg = f"-----------------------------{username} Disconnected---------------------------"\
+                
             else:
                 msg = f"[{username} | {time.ctime()}] {msg}"
             
             print(msg)
             with clients_lock:
                 for client_username, client_info in clients.items():
+                    if client_username == username:
+                        continue
                     c = client_info[0]
                     c.sendall(msg.encode(FORMAT))
 
     finally:
         with clients_lock:
-            del clients[username]
-
+            clients.pop(username)
         conn.close()
     
 
