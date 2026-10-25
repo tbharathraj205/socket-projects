@@ -122,14 +122,6 @@ This project helped me understand:
 - Using locks to protect shared client data.
 - Managing configuration through environment variables.
 
-## Future Improvements
-
-- Allow users to choose their own usernames.
-- Add private messaging.
-- Handle unexpected client disconnections more robustly.
-- Add authentication and encrypted communication.
-- Improve the chat interface.
-
 ## Author
 
 **Bharath Raj T**

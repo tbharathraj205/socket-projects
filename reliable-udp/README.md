@@ -62,10 +62,4 @@ The client connects to the server at `127.0.0.1:5000` and receives the file in c
 - SHA-256 hashing
 - Multithreading
 
-## Future Improvements
 
-- NACK-based error recovery
-- Timeout and retransmission handling
-- Whole-file checksum verification
-- Sliding-window protocol (Go-Back-N)
-- Support for binary files
