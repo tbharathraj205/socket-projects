@@ -1,0 +1,10 @@
+Line 1: Testing server-client file transfer.
+Line 2: This is a sample text file.
+Line 3: The client sends data to the server.
+Line 4: The server receives the incoming file.
+Line 5: File integrity should be maintained.
+Line 6: All lines must arrive without changes.
+Line 7: Special characters: !@#$%^&*()_+-=
+Line 8: Numbers for testing: 1234567890
+Line 9: Transfer status: Ready for verification.
+Line 10: End of file transfer test.
